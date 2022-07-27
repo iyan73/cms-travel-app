@@ -1,7 +1,11 @@
 <app-navbar></app-navbar>
 <div class="container mx-auto px-4 mt-20">
 
-  <div class="overflow-hidden overflow-x-auto border border-gray-100 rounded">
+  <button class="px-4 py-2 font-medium tracking-wide text-white capitalize transition-colors duration-200 transform bg-blue-600 rounded-md hover:bg-blue-500 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-80">
+    Add
+  </button>
+
+  <div class="overflow-hidden overflow-x-auto border border-gray-100 rounded mt-2">
     <table class="min-w-full text-sm divide-y divide-gray-200">
       <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
         <tr class="bg-gray-100">
@@ -15,7 +19,7 @@
         <tr *ngFor="let data of dataSource?.data">
           <td class="py-4 px-6 text-gray-700 whitespace-nowrap">{{ data.id }}</td>
           <td class="py-4 px-6 text-gray-700 whitespace-nowrap">{{ data.attributes.name }}</td>
-          <td class="py-4 px-6 text-gray-700 whitespace-nowrap">{{ data.attributes.price }}</td>
+          <td class="py-4 px-6 text-gray-700 whitespace-nowrap">{{ data.attributes.price | number }}</td>
           <td class="py-4 px-6 text-gray-700 whitespace-nowrap">{{ data.attributes.description }}</td>
         </tr>
       </tbody>
