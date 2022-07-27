@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TravelPackageService } from './travel-package.service';
 
 @Component({
   selector: 'app-travel-package',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TravelPackageComponent implements OnInit {
 
-  constructor() { }
+  dataSource: any;
+  constructor(
+    private travelPackageService: TravelPackageService
+  ) { }
 
   ngOnInit(): void {
+    this.travelPackageService.load().subscribe(x => {
+      console.log("x", x)
+      this.dataSource = x
+    });
   }
 
 }

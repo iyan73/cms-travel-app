@@ -1,1 +1,25 @@
-<p>travel-package works!</p>
+<app-navbar></app-navbar>
+<div class="container mx-auto px-4 mt-20">
+
+  <div class="overflow-hidden overflow-x-auto border border-gray-100 rounded">
+    <table class="min-w-full text-sm divide-y divide-gray-200">
+      <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+        <tr class="bg-gray-100">
+          <th scope="col" class="px-4 py-2 font-medium text-left text-gray-900 whitespace-nowrap">No</th>
+          <th scope="col" class="px-4 py-2 font-medium text-left text-gray-900 whitespace-nowrap">Name</th>
+          <th scope="col" class="px-4 py-2 font-medium text-left text-gray-900 whitespace-nowrap">Price</th>
+          <th scope="col" class="px-4 py-2 font-medium text-left text-gray-900 whitespace-nowrap">Description</th>
+        </tr>
+      </thead>
+      <tbody class="divide-y divide-gray-100">
+        <tr *ngFor="let data of dataSource?.data">
+          <td class="py-4 px-6 text-gray-700 whitespace-nowrap">{{ data.id }}</td>
+          <td class="py-4 px-6 text-gray-700 whitespace-nowrap">{{ data.attributes.name }}</td>
+          <td class="py-4 px-6 text-gray-700 whitespace-nowrap">{{ data.attributes.price }}</td>
+          <td class="py-4 px-6 text-gray-700 whitespace-nowrap">{{ data.attributes.description }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+</div>

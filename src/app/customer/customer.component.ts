@@ -21,7 +21,6 @@ export class CustomerComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    console.log('load')
     this.cs.load().subscribe(x => {
       console.log("x", x)
       this.dataSource = x
