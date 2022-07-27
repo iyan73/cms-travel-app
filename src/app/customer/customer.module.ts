@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CustomerComponent } from '../customer/customer.component';
+import { NavbarModule } from 'src/components/navbar/navbar.module';
 
 
 
@@ -9,7 +10,8 @@ import { CustomerComponent } from '../customer/customer.component';
     CustomerComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    NavbarModule
   ]
 })
 export class CustomerModule { }

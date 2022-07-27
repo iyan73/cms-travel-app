@@ -4,6 +4,9 @@ import { NavbarModule } from 'src/components/navbar/navbar.module';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { CustomerModule } from './customer/customer.module';
+import { OrderModule } from './order/order.module';
+import { TravelPackageModule } from './travel-package/travel-package.module';
 
 @NgModule({
   declarations: [
@@ -12,7 +15,10 @@ import { AppComponent } from './app.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NavbarModule
+    NavbarModule,
+    CustomerModule,
+    TravelPackageModule,
+    OrderModule
   ],
   providers: [],
   bootstrap: [AppComponent]
