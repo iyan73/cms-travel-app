@@ -1,3 +1,4 @@
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { NavbarModule } from 'src/components/navbar/navbar.module';
@@ -18,7 +19,8 @@ import { TravelPackageModule } from './travel-package/travel-package.module';
     NavbarModule,
     CustomerModule,
     TravelPackageModule,
-    OrderModule
+    OrderModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
