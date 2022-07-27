@@ -8,6 +8,7 @@ import { AppComponent } from './app.component';
 import { CustomerModule } from './customer/customer.module';
 import { OrderModule } from './order/order.module';
 import { TravelPackageModule } from './travel-package/travel-package.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { TravelPackageModule } from './travel-package/travel-package.module';
     CustomerModule,
     TravelPackageModule,
     OrderModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
