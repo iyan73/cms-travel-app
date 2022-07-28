@@ -15,4 +15,20 @@ export class OrderService {
   load(): Observable<any>{
     return this.http.get(`${environment.baseURL}/api/orders?populate=order_details`);
   }
+
+  loadDetail(_id: any): Observable<any>{
+    return this.http.get(`${environment.baseURL}/api/orders/${_id}?populate=order_details`);
+  }
+
+  create(data: any): Observable<any> {
+    return this.http.post(`${environment.baseURL}/api/orders`, data)
+  }
+
+  update(id:number, data: any): Observable<any> {
+    return this.http.put(`${environment.baseURL}/api/orders/${id}`, data)
+  }
+
+  delete(id: number): Observable<any> {
+    return this.http.delete(`${environment.baseURL}/api/orders/${id}`)
+  }
 }
