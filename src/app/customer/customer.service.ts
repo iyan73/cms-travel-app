@@ -15,4 +15,21 @@ export class CustomerService {
   load(): Observable<any>{
     return this.http.get(`${environment.baseURL}/api/customers`);
   }
+
+  loadDetail(_id: any): Observable<any>{
+    return this.http.get(`${environment.baseURL}/api/customers/${_id}`);
+  }
+
+  create(data: any): Observable<any> {
+    return this.http.post(`${environment.baseURL}/api/customers`, data)
+  }
+
+  update(id:number, data: any): Observable<any> {
+    return this.http.put(`${environment.baseURL}/api/customers/${id}`, data)
+  }
+
+  delete(id: number): Observable<any> {
+    return this.http.delete(`${environment.baseURL}/api/customers/${id}`)
+  }
+
 }

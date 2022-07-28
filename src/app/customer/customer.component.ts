@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { map, Observable } from 'rxjs';
+import { Router } from '@angular/router';
+import { map, Observable, tap } from 'rxjs';
 import { CustomerService } from './customer.service';
+import {MatDialog, MatDialogRef} from '@angular/material/dialog';
+import { DialogDeleteComponent } from './dialog-delete/dialog-delete.component';
 
 
 interface customerResponse {
@@ -17,19 +20,39 @@ export class CustomerComponent implements OnInit {
   // dataSource: Observable<any> | undefined;
   dataSource: any;
   constructor(
-    private cs: CustomerService
+    private customerService: CustomerService,
+    private router: Router,
+    public dialog: MatDialog
   ) { }
 
   ngOnInit(): void {
-    this.cs.load().subscribe(x => {
-      console.log("x", x)
+    this.load();
+  }
+
+  load(){
+    this.customerService.load().subscribe(x => {
       this.dataSource = x
     });
+  }
 
-    // this.dataSource = this.cs.load().pipe(map(x => {
-    //   console.log(x)
-    //   return x
-    // }))
+  add(){
+    this.router.navigateByUrl('/customer/add');
+  }
+
+  edit(data: any){
+    this.router.navigate([`/customer`, data.id]);
+  }
+
+  delete(data:any){
+    const dialogRef = this.dialog.open(DialogDeleteComponent, {
+      data: data
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if(result === 'deleted'){
+        this.load();
+      }
+    });
   }
 
 }
