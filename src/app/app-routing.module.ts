@@ -4,6 +4,8 @@ import { CustomerAddComponent } from './customer/customer-add/customer-add.compo
 import { CustomerEditComponent } from './customer/customer-edit/customer-edit.component';
 import { CustomerComponent } from './customer/customer.component';
 import { OrderComponent } from './order/order.component';
+import { TravelPackageAddComponent } from './travel-package/travel-package-add/travel-package-add.component';
+import { TravelPackageEditComponent } from './travel-package/travel-package-edit/travel-package-edit.component';
 import { TravelPackageComponent } from './travel-package/travel-package.component';
 
 const routes: Routes = [
@@ -12,7 +14,11 @@ const routes: Routes = [
   { path: 'customer/add', component: CustomerAddComponent },
   { path: 'customer/:id', component: CustomerEditComponent },
   { path: 'travel-package', component: TravelPackageComponent, pathMatch: 'full' },
+  { path: 'travel-package/add', component: TravelPackageAddComponent, pathMatch: 'full' },
+  { path: 'travel-package/:id', component: TravelPackageEditComponent, pathMatch: 'full' },
   { path: 'order', component: OrderComponent, pathMatch: 'full' },
+  { path: 'order/add', component: OrderComponent, pathMatch: 'full' },
+  { path: 'order/:id', component: OrderComponent, pathMatch: 'full' },
 ];
 
 @NgModule({
