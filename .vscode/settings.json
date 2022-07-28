@@ -1,3 +1,7 @@
 {
-    "tailwindCSS.experimental.configFile": "./tailwind.config.js"
+    "tailwindCSS.experimental.configFile": "./tailwind.config.js",
+
+    // remove orror in vscode : Unknown at rule @tailwind in scss
+    // no error but just for nice watching, haha
+    "scss.lint.unknownAtRules": "ignore"
 }
