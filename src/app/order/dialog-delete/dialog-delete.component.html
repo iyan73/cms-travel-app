@@ -3,16 +3,14 @@
   <table class="min-w-full text-sm divide-y divide-gray-200">
     <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
       <tr class="bg-gray-100">
-        <th scope="col" class="px-4 py-2 font-medium text-left text-gray-900 whitespace-nowrap">No</th>
-        <th scope="col" class="px-4 py-2 font-medium text-left text-gray-900 whitespace-nowrap">Package</th>
-        <th scope="col" class="px-4 py-2 font-medium text-left text-gray-900 whitespace-nowrap">Total Price</th>
+        <th scope="col" class="px-4 py-2 font-medium text-center text-gray-900 whitespace-nowrap">Package</th>
+        <th scope="col" class="px-4 py-2 font-medium text-center text-gray-900 whitespace-nowrap">Total Price</th>
       </tr>
     </thead>
     <tbody class="divide-y divide-gray-100">
-      <tr *ngFor="let item of data?.attributes.order_details.data">
-        <td class="py-4 px-6 text-gray-700 whitespace-nowrap">{{ item.id }}</td>
+      <tr *ngFor="let item of dataSource?.data">
         <td class="py-4 px-6 text-gray-700 whitespace-nowrap">{{ item.attributes.travel_packages.data.attributes.name }}</td>
-        <td class="py-4 px-6 text-gray-700 whitespace-nowrap">{{ item.attributes.price }}</td>
+        <td class="py-4 px-6 text-gray-700 whitespace-nowrap">{{ item.attributes.travel_packages.data.attributes.price | number }}</td>
       </tr>
     </tbody>
   </table>

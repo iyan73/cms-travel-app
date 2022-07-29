@@ -13,12 +13,16 @@ export class OrderService {
   ) { }
 
   load(): Observable<any>{
-    return this.http.get(`${environment.baseURL}/api/orders?populate[order_details][populate][0]=travel_packages`);
+    return this.http.get(`${environment.baseURL}/api/orders?populate=customer`);
   }
 
-  loadDetail(_id: any): Observable<any>{
-    return this.http.get(`${environment.baseURL}/api/orders/${_id}?populate=order_details`);
-  }
+  // load(): Observable<any>{
+  //   return this.http.get(`${environment.baseURL}/api/orders?populate[order_details][populate][0]=travel_packages`);
+  // }
+
+  // loadDetail(_id: any): Observable<any>{
+  //   return this.http.get(`${environment.baseURL}/api/orders/${_id}?populate=order_details`);
+  // }
 
   create(data: any): Observable<any> {
     return this.http.post(`${environment.baseURL}/api/orders`, data)
@@ -30,6 +34,10 @@ export class OrderService {
 
   delete(id: number): Observable<any> {
     return this.http.delete(`${environment.baseURL}/api/orders/${id}`)
+  }
+
+  loadOrderDetail(_id: any): Observable<any>{
+    return this.http.get(`${environment.baseURL}/api/order-details?fields[0]=price&populate[1]=travel_packages&populate[2]=order&filters\[order\][id][$eq]=${_id}`);
   }
 
   createDetailOrder(data: any): Observable<any> {

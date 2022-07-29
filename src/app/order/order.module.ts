@@ -7,7 +7,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
 import { DialogDeleteModule } from './dialog-delete/dialog-delete.module';
-
+import {MatTooltipModule} from '@angular/material/tooltip';
 
 
 @NgModule({
@@ -21,7 +21,8 @@ import { DialogDeleteModule } from './dialog-delete/dialog-delete.module';
     MatIconModule,
     MatButtonModule,
     MatDialogModule,
-    DialogDeleteModule
+    DialogDeleteModule,
+    MatTooltipModule
   ]
 })
 export class OrderModule { }

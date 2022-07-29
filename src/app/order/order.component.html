@@ -9,20 +9,21 @@
     <table class="min-w-full text-sm divide-y divide-gray-200">
       <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
         <tr class="bg-gray-100">
-          <th scope="col" class="px-4 py-2 font-medium text-left text-gray-900 whitespace-nowrap">No</th>
-          <th scope="col" class="px-4 py-2 font-medium text-left text-gray-900 whitespace-nowrap">Invoice Number</th>
-          <th scope="col" class="px-4 py-2 font-medium text-left text-gray-900 whitespace-nowrap">Total Price</th>
-          <th scope="col" class="px-4 py-2 font-medium text-left text-gray-900 whitespace-nowrap">Action</th>
+          <th scope="col" class="px-4 py-2 font-medium text-center text-gray-900 whitespace-nowrap">No</th>
+          <th scope="col" class="px-4 py-2 font-medium text-center text-gray-900 whitespace-nowrap">Invoice Number</th>
+          <th scope="col" class="px-4 py-2 font-medium text-center text-gray-900 whitespace-nowrap">Total Price</th>
+          <th scope="col" class="px-4 py-2 font-medium text-center text-gray-900 whitespace-nowrap">Action</th>
         </tr>
       </thead>
       <tbody class="divide-y divide-gray-100">
         <tr *ngFor="let data of dataSource?.data">
-          <td class="py-4 px-6 text-gray-700 whitespace-nowrap">{{ data.id }}</td>
-          <td class="py-4 px-6 text-gray-700 whitespace-nowrap">{{ data.attributes.invoice_number }}</td>
-          <td class="py-4 px-6 text-gray-700 whitespace-nowrap">{{ data.attributes.total_price | number }}</td>
-          <td class="py-4 px-6 text-gray-700 whitespace-nowrap">
-            <button (click)="viewDetails(data)" mat-icon-button>
-              <mat-icon>info</mat-icon>
+          <td class="py-4 px-6 text-gray-700 whitespace-nowrap text-center">{{ data.id }}</td>
+          <td class="py-4 px-6 text-gray-700 whitespace-nowrap text-center">{{ data.attributes.invoice_number }}</td>
+          <td class="py-4 px-6 text-gray-700 whitespace-nowrap text-right">{{ data.attributes.total_price | number }}</td>
+          <td class="py-4 px-6 text-gray-700 whitespace-nowrap text-center">
+            <button mat-icon-button (click)="viewDetails(data)" matTooltip="Detail">
+              <mat-icon>find_in_page</mat-icon> 
+              <!-- <span> View Detail</span> -->
             </button>
           </td>
         </tr>
