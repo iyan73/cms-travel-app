@@ -1,0 +1,84 @@
+<app-navbar></app-navbar>
+<div class="container mx-auto px-4 mt-20">
+    <section class="max-w-4xl p-6 mx-auto bg-white rounded-md shadow-md dark:bg-gray-800">
+        <h2 class="text-lg font-semibold text-gray-700 capitalize dark:text-white">Add Order Form</h2>
+
+        <form [formGroup]="orderForm">
+            <div class="grid grid-cols-1 gap-3 mt-4">
+                <div>
+                    <label class="text-gray-700 dark:text-gray-200" for="invoice_number">Invoice Number</label>
+                    <input id="invoice_number" type="text" formControlName="invoice_number"
+                        class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring">
+                </div>
+                <div>
+                    <label for="customer_id"
+                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">Customer</label>
+                    <select formControlName="customer_id" id="customer_id"
+                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                        <option value="{{ item.id }}" *ngFor="let item of dataSource?.data">{{ item.attributes.name }}
+                        </option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="my-4">
+                <button (click)="viewTravelPackage('c')"
+                    class="px-6 py-2 leading-5 text-white transition-colors duration-200 transform bg-gray-700 rounded-md hover:bg-gray-600 focus:outline-none focus:bg-gray-600">Select
+                    Travel Package</button>
+            </div>
+
+            <div class="overflow-hidden overflow-x-auto border border-gray-100 rounded mt-2">
+                <table class="min-w-full text-sm divide-y divide-gray-200">
+                    <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                        <tr class="bg-gray-100">
+                            <th scope="col" class="px-4 py-2 font-medium text-left text-gray-900 whitespace-nowrap">ID Travel Package
+                            </th>
+                            <th scope="col" class="px-4 py-2 font-medium text-left text-gray-900 whitespace-nowrap">
+                                Travel Package name</th>
+                            <th scope="col" class="px-4 py-2 font-medium text-left text-gray-900 whitespace-nowrap">
+                                Price</th>
+                            <th scope="col" class="px-4 py-2 font-medium text-left text-gray-900 whitespace-nowrap">
+                                Action</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-gray-100">
+                        <tr *ngFor="let data of selectedTravelPackages">
+                            <td class="py-4 px-6 text-gray-700 whitespace-nowrap">{{ data.id }}</td>
+                            <td class="py-4 px-6 text-gray-700 whitespace-nowrap">{{ data.attributes.name }}</td>
+                            <td class="py-4 px-6 text-gray-700 whitespace-nowrap">{{ data.attributes.price | number }}
+                            </td>
+                            <td class="py-4 px-6 text-gray-700 whitespace-nowrap">
+                                <button (click)="removeTravelPackage(data)" mat-icon-button>
+                                    <mat-icon>delete</mat-icon>
+                                </button>
+                            </td>
+                        </tr>
+                        <tr *ngIf="selectedTravelPackages.length == 0">
+                            <td class="py-4 px-6 text-gray-700 whitespace-nowrap text-center" colspan="4">No Travel Pacakge Added</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="grid grid-cols-1 gap-3 mt-4">
+                <div class="hidden">
+                    <label class="text-gray-700 dark:text-gray-200" for="total_price">Total Price {{ orderForm.controls['total_price'].value | number }}</label>
+                    <input id="total_price" type="number" formControlName="total_price" readonly
+                        class="block w-full text-right px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring">
+                </div>
+
+                <div class="flex justify-end mt-6 gap-3">
+                    <span>Total Price : </span>
+                    <h3 class="font-bold">{{ orderForm.controls['total_price'].value | number }}</h3>
+                </div>
+    
+                <div class="flex justify-end mt-6">
+                    <button (click)="save()"
+                        [disabled]="selectedTravelPackages.length === 0"
+                        class="px-6 py-2 leading-5 text-white transition-colors duration-200 transform bg-gray-700 rounded-md hover:bg-gray-600 focus:outline-none focus:bg-gray-600 disabled:opacity-25 disabled:cursor-not-allowed">Save</button>
+                </div>
+            </div>
+
+        </form>
+    </section>
+</div>

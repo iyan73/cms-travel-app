@@ -13,7 +13,7 @@ export class OrderService {
   ) { }
 
   load(): Observable<any>{
-    return this.http.get(`${environment.baseURL}/api/orders?populate=order_details`);
+    return this.http.get(`${environment.baseURL}/api/orders?populate[order_details][populate][0]=travel_packages`);
   }
 
   loadDetail(_id: any): Observable<any>{
@@ -30,5 +30,9 @@ export class OrderService {
 
   delete(id: number): Observable<any> {
     return this.http.delete(`${environment.baseURL}/api/orders/${id}`)
+  }
+
+  createDetailOrder(data: any): Observable<any> {
+    return this.http.post(`${environment.baseURL}/api/order-details`, data)
   }
 }
