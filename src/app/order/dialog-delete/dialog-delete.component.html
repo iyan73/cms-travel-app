@@ -9,8 +9,8 @@
     </thead>
     <tbody class="divide-y divide-gray-100">
       <tr *ngFor="let item of dataSource?.data">
-        <td class="py-4 px-6 text-gray-700 whitespace-nowrap">{{ item.attributes.travel_packages.data.attributes.name }}</td>
-        <td class="py-4 px-6 text-gray-700 whitespace-nowrap">{{ item.attributes.travel_packages.data.attributes.price | number }}</td>
+        <td class="py-4 px-6 text-gray-700 whitespace-nowrap">{{ item.attributes.travel_package.data.attributes.name }}</td>
+        <td class="py-4 px-6 text-gray-700 whitespace-nowrap">{{ item.attributes.travel_package.data.attributes.price | number }}</td>
       </tr>
     </tbody>
   </table>
