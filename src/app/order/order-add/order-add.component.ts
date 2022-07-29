@@ -50,7 +50,7 @@ export class OrderAddComponent implements OnInit {
       data : {
         invoice_number: this.orderForm.controls['invoice_number'].value,
         total_price: this.orderForm.controls['total_price'].value,
-        customer_id: [ Number(this.orderForm.controls['customer_id'].value) ]
+        customer: [ Number(this.orderForm.controls['customer_id'].value) ]
       }
     }
     console.log(param)
@@ -68,7 +68,7 @@ export class OrderAddComponent implements OnInit {
         data : {
           price: 900000,
           order: [dataOrder.data.id],
-          travel_package_id: [x.id]
+          travel_package: [x.id]
         }
       }
 

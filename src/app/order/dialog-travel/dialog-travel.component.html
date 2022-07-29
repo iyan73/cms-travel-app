@@ -1,7 +1,7 @@
 
 <h3 class="mb-4 font-semibold text-gray-900 dark:text-white">Choose your travel package</h3>
 <mat-radio-group
-  class="w-full"
+  class="w-full flex flex-col"
   [(ngModel)]="travel">
   <mat-radio-button class="py-2" *ngFor="let item of dataSource?.data" [value]="item">
     {{item.attributes.name}}
